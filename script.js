@@ -10,6 +10,7 @@ const images = [
 ];
 
 function loadImage(url) {
+
   return new Promise((resolve, reject) => {
 
     const img = document.createElement("img");
@@ -21,6 +22,7 @@ function loadImage(url) {
     img.onerror = () => reject("Image failed to load");
 
   });
+
 }
 
 btn.addEventListener("click", () => {
@@ -28,6 +30,7 @@ btn.addEventListener("click", () => {
   const promises = images.map((image) => loadImage(image.url));
 
   Promise.all(promises)
+
     .then((result) => {
 
       output.innerHTML = "";
@@ -37,6 +40,7 @@ btn.addEventListener("click", () => {
       });
 
     })
+
     .catch((err) => {
 
       output.innerHTML = err;
